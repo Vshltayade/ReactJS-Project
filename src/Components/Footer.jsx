@@ -1,9 +1,9 @@
-import { footMenu } from "../data/footerData"
+import { footMenu, footSocial } from "../data/footerData.jsx"
 import '../Stylings/footer.css'
 
 const Footer = () => {
     return(
-        <footer className="d-flex flex-column px-5 py-3" style={{backgroundColor:"#141414", color:"#c5c5c5"}}>
+        <footer className="d-flex flex-column px-5 py-5" style={{backgroundColor:"#141414", color:"#c5c5c5"}}>
             <div id="footer_content" className="d-flex">
                 <div>
                     <h1 className='fw-semibold' style={{fontSize:'24px'}}>Tech-Shop</h1>
@@ -46,10 +46,10 @@ const Footer = () => {
             <div className="d-flex justify-content-between align-items-center my-2" id="last-line">
                 <p className="my-auto">2024 | All Rights Reserved. Built by | <span>VISHAL TAYADE</span></p>
                 <div>
-                    <i className="fa-brands fa-facebook-f"></i>
-                    <i className="fa-brands fa-twitter"></i>
-                    <i className="fa-brands fa-instagram"></i>
-                    <i className="fa-brands fa-linkedin-in"></i>
+                    <i>{footSocial[0]['icon']}</i>
+                    <i>{footSocial[1]['icon']}</i>
+                    <i>{footSocial[2]['icon']}</i>
+                    <i>{footSocial[3]['icon']}</i>
                 </div>
             </div>
          </footer>
