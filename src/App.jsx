@@ -4,6 +4,7 @@ import Footer from './Components/Footer'
 import Header from './Components/Header'
 import Hero from './Components/Hero'
 import Services from './Components/Services'
+import TopProducts from './Components/TopProducts'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Hero />
       <FeaturedProducts />
+      <TopProducts />
       <Services />
       <Footer />
     </div>
