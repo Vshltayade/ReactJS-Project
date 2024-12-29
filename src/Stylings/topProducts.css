@@ -1,24 +1,7 @@
-#product_section{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 25px 50px;
-    font-size: 20px;
-}
-
-#product_section > div{
-    font-weight: light;
-    padding: 8px 15px;
+.nav-link.active {
     border-radius: 5px;
-    color: #eae9e9;
-}
-
-#product_section > div:nth-child(1):hover, #product_section > div:nth-child(2):hover, #product_section > div:nth-child(3):hover, #product_section > div:nth-child(4):hover, #product_section > div:last-child:hover{
-    padding: 8px 15px;
-    background-color: #d00000;
-    border-radius: 5px;
-    color: #eae9e9;
-    cursor: pointer;
+    background-color: #cc0909;
+    color: white;
 }
 
 #product_grid{
