@@ -3,6 +3,15 @@ import productsData from "../data/productsData";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 
+const Rate = (props) => {
+    // eslint-disable-next-line react/prop-types
+    const arr = Array(props.rateCount).fill(0)
+    const element = arr.map((e,i) => <i className="fa-solid fa-star" key={i}></i>)
+    return(
+        <div>{element}</div>
+    )
+}
+
 const TopProducts = () => {
   return (
     <div className="px-5 pt-5" style={{ color: "#c5c5c5" }}>
@@ -67,11 +76,7 @@ const TopProducts = () => {
                     <div className="product_items" key={product["id"]}>
                       <img src={product["images"][0]} alt={product["title"]} />
                       <div>
-                        <i className="fa-solid fa-star"></i>
-                        <i className="fa-solid fa-star"></i>
-                        <i className="fa-solid fa-star"></i>
-                        <i className="fa-solid fa-star"></i>
-                        <i className="fa-solid fa-star"></i>
+                        <Rate rateCount={product['rateCount']}/>
                       </div>
                       <h3>{product["title"]}</h3>
                       <p>{product["info"]}</p>
@@ -104,11 +109,7 @@ const TopProducts = () => {
                           alt={product["title"]}
                         />
                         <div>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
+                            <Rate rateCount={product['rateCount']}/>
                         </div>
                         <h3>{product["title"]}</h3>
                         <p>{product["info"]}</p>
@@ -141,11 +142,7 @@ const TopProducts = () => {
                           alt={product["title"]}
                         />
                         <div>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
+                            <Rate rateCount={product['rateCount']}/>
                         </div>
                         <h3>{product["title"]}</h3>
                         <p>{product["info"]}</p>
@@ -178,11 +175,7 @@ const TopProducts = () => {
                           alt={product["title"]}
                         />
                         <div>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
+                            <Rate rateCount={product['rateCount']}/>
                         </div>
                         <h3>{product["title"]}</h3>
                         <p>{product["info"]}</p>
@@ -215,11 +208,7 @@ const TopProducts = () => {
                           alt={product["title"]}
                         />
                         <div>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
+                            <Rate rateCount={product['rateCount']}/>
                         </div>
                         <h3>{product["title"]}</h3>
                         <p>{product["info"]}</p>
@@ -241,7 +230,7 @@ const TopProducts = () => {
           </Tab.Pane>
         </Tab.Content>
       </Tab.Container>
-      
+
     </div>
   );
 };
