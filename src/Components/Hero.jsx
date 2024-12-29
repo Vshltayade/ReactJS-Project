@@ -32,7 +32,7 @@ const Hero = () => {
                                     <h5 style={{color:'#c5c5c5'}}>{product['title']}</h5>
                                     <h1 style={{color:'#c5c5c5'}}>{product['tagline']}</h1>
                                     <h4 style={{color:'#c5c5c5', position:'relative', left:0}}>₹{product['originalPrice']} <del className="text-secondary">₹{product['finalPrice']}</del></h4>
-                                    <Link to='cart'>
+                                    <Link to={`product-details/${product['id']}`}>
                                         <button className="btnn">Shop Now</button>
                                     </Link>
                                 </div>

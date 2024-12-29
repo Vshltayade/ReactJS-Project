@@ -1,6 +1,7 @@
 import productsData from "../data/productsData"
 import Slider from "react-slick"
 import '../Stylings/featuredProducts.css'
+import { Link } from "react-router-dom"
 
 const FeaturedProducts = () => {
 
@@ -25,11 +26,13 @@ const FeaturedProducts = () => {
                 {
                     productsData && productsData.filter(product => product['tag']==='featured-product').map(product => {
                         return(
-                            <div className="my-4" key={product['id']}>
-                                <h3 className="text-center h6 fw-light">{product['title']}</h3>
-                                <img src={product['images'][0]} alt={product['title']} width="100%" style={{padding:'50px'}}/>
-                                <h4 className="text-center h5">₹{product['originalPrice']} <del className="text-secondary h6">₹{product['finalPrice']}</del></h4>
-                            </div>
+                            <Link to={`product-details/${product['id']}`} key={product['id']} className="text-decoration-none" >
+                                <div className="my-4">
+                                    <h3 className="text-center h6 fw-light" style={{color:"#c5c5c5"}}>{product['title']}</h3>
+                                    <img src={product['images'][0]} alt={product['title']} width="100%" style={{padding:'50px'}}/>
+                                    <h4 className="text-center h5" style={{color:"#c5c5c5"}}>₹{product['originalPrice']} <del className="text-secondary h6">₹{product['finalPrice']}</del></h4>
+                                </div>
+                            </Link>
                         )
                     })
                 }

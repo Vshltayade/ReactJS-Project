@@ -2,15 +2,7 @@ import "../Stylings/topProducts.css";
 import productsData from "../data/productsData";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
-
-const Rate = (props) => {
-    // eslint-disable-next-line react/prop-types
-    const arr = Array(props.rateCount).fill(0)
-    const element = arr.map((e,i) => <i className="fa-solid fa-star" key={i}></i>)
-    return(
-        <div>{element}</div>
-    )
-}
+import Rate from "./Rate";
 
 const TopProducts = () => {
   return (
@@ -18,6 +10,7 @@ const TopProducts = () => {
       <h2 className="text-center h3 fw-semibold my-5 py-5">Top Products</h2>
 
       <Tab.Container defaultActiveKey="first">
+        
         <div className="d-flex justify-content-center">
           <Nav className="flex-row">
             <Nav.Item className="mx-5">
@@ -67,6 +60,7 @@ const TopProducts = () => {
             </Nav.Item>
           </Nav>
         </div>
+        
         <Tab.Content>
           <Tab.Pane eventKey="first">
             <div id="product_grid">
@@ -229,6 +223,7 @@ const TopProducts = () => {
             </div>
           </Tab.Pane>
         </Tab.Content>
+
       </Tab.Container>
 
     </div>
