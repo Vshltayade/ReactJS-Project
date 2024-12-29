@@ -14,30 +14,72 @@ const ProductDetails = () => {
     <div className="px-5 my-5" style={{ color: "#c5c5c5" }}>
       {/* product images and pricing */}
       <main id="selected-product" className="d-flex">
+      <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+      <Nav variant="" className="flex-column">
         <div id="different_images">
-          <img
+        <Nav.Item>
+        <Nav.Link eventKey="first">
+        <img
             src={productsData[id - 1]["images"][0]}
             alt={productsData[id - 1]["title"]}
           />
+        </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+            <Nav.Link eventKey="second">
           <img
             src={productsData[id - 1]["images"][1]}
             alt={productsData[id - 1]["title"]}
           />
+          </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+            <Nav.Link eventKey="third">
           <img
             src={productsData[id - 1]["images"][2]}
             alt={productsData[id - 1]["title"]}
           />
+          </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+            <Nav.Link eventKey="fourth">
           <img
             src={productsData[id - 1]["images"][3]}
             alt={productsData[id - 1]["title"]}
           />
+          </Nav.Link>
+            </Nav.Item>
         </div>
-        <div id="one_image">
+        </Nav>
+            <div id="one_image">
+        <Tab.Content>
+        <Tab.Pane eventKey="first">
           <img
             src={productsData[id - 1]["images"][0]}
             alt={productsData[id - 1]["title"]}
           />
+        </Tab.Pane>
+        <Tab.Pane eventKey="second">
+          <img
+            src={productsData[id - 1]["images"][1]}
+            alt={productsData[id - 1]["title"]}
+          />
+        </Tab.Pane>
+        <Tab.Pane eventKey="third">
+          <img
+            src={productsData[id - 1]["images"][2]}
+            alt={productsData[id - 1]["title"]}
+          />
+        </Tab.Pane>
+        <Tab.Pane eventKey="fourth">
+          <img
+            src={productsData[id - 1]["images"][3]}
+            alt={productsData[id - 1]["title"]}
+          />
+        </Tab.Pane>
+        </Tab.Content>
         </div>
+        </Tab.Container>
         <div id="product_add_to_cart">
           <div id="one_product_info">
             <h1>{productsData[id - 1]["title"]}</h1>
@@ -217,6 +259,7 @@ const ProductDetails = () => {
         </Tab.Container>
       </section>
 
+        {/* related products */}
       <section>
         <h2 className="text-center h3 fw-semibold my-5 py-5">
           Related Products
