@@ -96,9 +96,9 @@
     justify-content: center;
 }
 
-#browse-all-products > div{
+#browse-all-products  div{
     padding: 40px;
-    font-weight: 100;
-    font-size: 40px;
+    font-weight: 200;
+    font-size: 32px;
     color: #c8cfe6;
 }

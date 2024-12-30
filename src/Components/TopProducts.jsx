@@ -4,8 +4,10 @@ import productsData from "../data/productsData";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import Rate from "./Rate";
+import { Link } from "react-router-dom";
 
 const TopProducts = (props) => {
+  
   const handleClick = (e, product) => {
     let obj = props.items;
     if (props.items[product["id"]])
@@ -106,7 +108,9 @@ const TopProducts = (props) => {
                   );
                 })}
               <div id="browse-all-products" className="product_items">
-                <div>Browse All Products →</div>
+                <Link to="allproducts" className="text-decoration-none">
+                  <div>Browse All Products →</div>
+                </Link>
               </div>
             </div>
           </Tab.Pane>
@@ -141,7 +145,9 @@ const TopProducts = (props) => {
                     );
                   })}
               <div id="browse-all-products" className="product_items">
-                <div>Browse All Products →</div>
+                <Link to="allproducts" className="text-decoration-none">
+                  <div>Browse All Products →</div>
+                </Link>
               </div>
             </div>
           </Tab.Pane>
@@ -176,7 +182,9 @@ const TopProducts = (props) => {
                     );
                   })}
               <div id="browse-all-products" className="product_items">
-                <div>Browse All Products →</div>
+                <Link to="allproducts" className="text-decoration-none">
+                  <div>Browse All Products →</div>
+                </Link>
               </div>
             </div>
           </Tab.Pane>
@@ -211,7 +219,9 @@ const TopProducts = (props) => {
                     );
                   })}
               <div id="browse-all-products" className="product_items">
-                <div>Browse All Products →</div>
+                <Link to="allproducts" className="text-decoration-none">
+                  <div>Browse All Products →</div>
+                </Link>
               </div>
             </div>
           </Tab.Pane>
@@ -246,12 +256,13 @@ const TopProducts = (props) => {
                     );
                   })}
               <div id="browse-all-products" className="product_items">
-                <div>Browse All Products →</div>
+                <Link to="allproducts" className="text-decoration-none">
+                  <div>Browse All Products →</div>
+                </Link>
               </div>
             </div>
           </Tab.Pane>
         </Tab.Content>
-        
       </Tab.Container>
     </div>
   );

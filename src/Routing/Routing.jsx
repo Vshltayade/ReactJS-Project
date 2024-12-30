@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import ProductDetails from "../Components/ProductDetails";
 import Main from "../Components/Main";
 import Cart from "../Components/Cart";
+import AllProducts from "../Components/AllProducts";
 
 const Routing = (props) => {
   return (
@@ -21,9 +22,13 @@ const Routing = (props) => {
         path="/cart"
         element={<Cart items={props.items} setItems={props.setItems} />}
       />
+      <Route
+        path="/allproducts"
+        element={<AllProducts items={props.items} setItems={props.setItems} />}
+      />
       {/* <Route path="/login" element={<Login/>} />
             <Route path="/signup" element={<Signup/>} />
-            <Route path="/allproducts" element={<AllProducts/>} /> */}
+             */}
     </Routes>
   );
 };
