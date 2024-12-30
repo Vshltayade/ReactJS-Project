@@ -1,16 +1,34 @@
+/* eslint-disable react/prop-types */
 import "../Stylings/topProducts.css";
 import productsData from "../data/productsData";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import Rate from "./Rate";
 
-const TopProducts = () => {
+const TopProducts = (props) => {
+  const handleClick = (e, product) => {
+    let obj = props.items;
+    if (props.items[product["id"]])
+      props.setItems({
+        ...obj,
+        [product["id"]]: { count: obj[product["id"]]["count"] + 1 },
+      });
+    else props.setItems({ ...obj, [product["id"]]: { count: 1 } });
+    e.target.style.background = "rgb(0, 136, 0)";
+    e.target.style.transition = "background .2s ease-in";
+    e.target.innerText = "Added";
+    setTimeout(() => {
+      e.target.style.background = "#d00000";
+      e.target.style.transition = "background .2s ease-in";
+      e.target.innerText = "Add to Cart";
+    }, 2000);
+  };
+
   return (
     <div className="px-5 pt-5" style={{ color: "#c5c5c5" }}>
       <h2 className="text-center h3 fw-semibold my-5 py-5">Top Products</h2>
 
       <Tab.Container defaultActiveKey="first">
-        
         <div className="d-flex justify-content-center">
           <Nav className="flex-row">
             <Nav.Item className="mx-5">
@@ -60,7 +78,7 @@ const TopProducts = () => {
             </Nav.Item>
           </Nav>
         </div>
-        
+
         <Tab.Content>
           <Tab.Pane eventKey="first">
             <div id="product_grid">
@@ -70,7 +88,7 @@ const TopProducts = () => {
                     <div className="product_items" key={product["id"]}>
                       <img src={product["images"][0]} alt={product["title"]} />
                       <div>
-                        <Rate rateCount={product['rateCount']}/>
+                        <Rate rateCount={product["rateCount"]} />
                       </div>
                       <h3>{product["title"]}</h3>
                       <p>{product["info"]}</p>
@@ -81,7 +99,9 @@ const TopProducts = () => {
                           ₹{product["finalPrice"]}
                         </del>
                       </h4>
-                      <button>Add to cart</button>
+                      <button onClick={(e) => handleClick(e, product)}>
+                        Add to cart
+                      </button>
                     </div>
                   );
                 })}
@@ -103,7 +123,7 @@ const TopProducts = () => {
                           alt={product["title"]}
                         />
                         <div>
-                            <Rate rateCount={product['rateCount']}/>
+                          <Rate rateCount={product["rateCount"]} />
                         </div>
                         <h3>{product["title"]}</h3>
                         <p>{product["info"]}</p>
@@ -114,7 +134,9 @@ const TopProducts = () => {
                             ₹{product["finalPrice"]}
                           </del>
                         </h4>
-                        <button>Add to cart</button>
+                        <button onClick={(e) => handleClick(e, product)}>
+                          Add to cart
+                        </button>
                       </div>
                     );
                   })}
@@ -136,7 +158,7 @@ const TopProducts = () => {
                           alt={product["title"]}
                         />
                         <div>
-                            <Rate rateCount={product['rateCount']}/>
+                          <Rate rateCount={product["rateCount"]} />
                         </div>
                         <h3>{product["title"]}</h3>
                         <p>{product["info"]}</p>
@@ -147,7 +169,9 @@ const TopProducts = () => {
                             ₹{product["finalPrice"]}
                           </del>
                         </h4>
-                        <button>Add to cart</button>
+                        <button onClick={(e) => handleClick(e, product)}>
+                          Add to cart
+                        </button>
                       </div>
                     );
                   })}
@@ -169,7 +193,7 @@ const TopProducts = () => {
                           alt={product["title"]}
                         />
                         <div>
-                            <Rate rateCount={product['rateCount']}/>
+                          <Rate rateCount={product["rateCount"]} />
                         </div>
                         <h3>{product["title"]}</h3>
                         <p>{product["info"]}</p>
@@ -180,7 +204,9 @@ const TopProducts = () => {
                             ₹{product["finalPrice"]}
                           </del>
                         </h4>
-                        <button>Add to cart</button>
+                        <button onClick={(e) => handleClick(e, product)}>
+                          Add to cart
+                        </button>
                       </div>
                     );
                   })}
@@ -202,7 +228,7 @@ const TopProducts = () => {
                           alt={product["title"]}
                         />
                         <div>
-                            <Rate rateCount={product['rateCount']}/>
+                          <Rate rateCount={product["rateCount"]} />
                         </div>
                         <h3>{product["title"]}</h3>
                         <p>{product["info"]}</p>
@@ -213,7 +239,9 @@ const TopProducts = () => {
                             ₹{product["finalPrice"]}
                           </del>
                         </h4>
-                        <button>Add to cart</button>
+                        <button onClick={(e) => handleClick(e, product)}>
+                          Add to cart
+                        </button>
                       </div>
                     );
                   })}
@@ -223,9 +251,7 @@ const TopProducts = () => {
             </div>
           </Tab.Pane>
         </Tab.Content>
-
       </Tab.Container>
-
     </div>
   );
 };

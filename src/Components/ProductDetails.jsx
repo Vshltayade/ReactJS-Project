@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "../Stylings/productDetails.css";
 import productsData from "../data/productsData";
 import Rate from "./Rate";
@@ -7,78 +7,91 @@ import Tab from "react-bootstrap/Tab";
 import reviewsData from "../data/reviewsData";
 import { FaUserEdit } from "react-icons/fa";
 
-const ProductDetails = () => {
+const ProductDetails = (props) => {
+
+  console.log(props);
+
   const { id } = useParams();
+
+  const handleClick = (e) => {
+    e.target.style.background = "rgb(0, 136, 0)"
+    e.target.style.transition = "background .2s ease-in"
+    e.target.innerText = "Added"
+    setTimeout(() => {
+      e.target.style.background = "#d00000"
+      e.target.innerText = "Add to Cart"
+    }, 2000 )
+  }
 
   return (
     <div className="px-5 my-5" style={{ color: "#c5c5c5" }}>
       {/* product images and pricing */}
       <main id="selected-product" className="d-flex">
-      <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-      <Nav variant="" className="flex-column">
-        <div id="different_images">
-        <Nav.Item>
-        <Nav.Link eventKey="first">
-        <img
-            src={productsData[id - 1]["images"][0]}
-            alt={productsData[id - 1]["title"]}
-          />
-        </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-            <Nav.Link eventKey="second">
-          <img
-            src={productsData[id - 1]["images"][1]}
-            alt={productsData[id - 1]["title"]}
-          />
-          </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-            <Nav.Link eventKey="third">
-          <img
-            src={productsData[id - 1]["images"][2]}
-            alt={productsData[id - 1]["title"]}
-          />
-          </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-            <Nav.Link eventKey="fourth">
-          <img
-            src={productsData[id - 1]["images"][3]}
-            alt={productsData[id - 1]["title"]}
-          />
-          </Nav.Link>
-            </Nav.Item>
-        </div>
-        </Nav>
-            <div id="one_image">
-        <Tab.Content>
-        <Tab.Pane eventKey="first">
-          <img
-            src={productsData[id - 1]["images"][0]}
-            alt={productsData[id - 1]["title"]}
-          />
-        </Tab.Pane>
-        <Tab.Pane eventKey="second">
-          <img
-            src={productsData[id - 1]["images"][1]}
-            alt={productsData[id - 1]["title"]}
-          />
-        </Tab.Pane>
-        <Tab.Pane eventKey="third">
-          <img
-            src={productsData[id - 1]["images"][2]}
-            alt={productsData[id - 1]["title"]}
-          />
-        </Tab.Pane>
-        <Tab.Pane eventKey="fourth">
-          <img
-            src={productsData[id - 1]["images"][3]}
-            alt={productsData[id - 1]["title"]}
-          />
-        </Tab.Pane>
-        </Tab.Content>
-        </div>
+        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+          <Nav variant="" className="flex-column">
+            <div id="different_images">
+              <Nav.Item>
+                <Nav.Link eventKey="first">
+                  <img
+                    src={productsData[id - 1]["images"][0]}
+                    alt={productsData[id - 1]["title"]}
+                  />
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="second">
+                  <img
+                    src={productsData[id - 1]["images"][1]}
+                    alt={productsData[id - 1]["title"]}
+                  />
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="third">
+                  <img
+                    src={productsData[id - 1]["images"][2]}
+                    alt={productsData[id - 1]["title"]}
+                  />
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="fourth">
+                  <img
+                    src={productsData[id - 1]["images"][3]}
+                    alt={productsData[id - 1]["title"]}
+                  />
+                </Nav.Link>
+              </Nav.Item>
+            </div>
+          </Nav>
+          <div id="one_image">
+            <Tab.Content>
+              <Tab.Pane eventKey="first">
+                <img
+                  src={productsData[id - 1]["images"][0]}
+                  alt={productsData[id - 1]["title"]}
+                />
+              </Tab.Pane>
+              <Tab.Pane eventKey="second">
+                <img
+                  src={productsData[id - 1]["images"][1]}
+                  alt={productsData[id - 1]["title"]}
+                />
+              </Tab.Pane>
+              <Tab.Pane eventKey="third">
+                <img
+                  src={productsData[id - 1]["images"][2]}
+                  alt={productsData[id - 1]["title"]}
+                />
+              </Tab.Pane>
+              <Tab.Pane eventKey="fourth">
+                <img
+                  src={productsData[id - 1]["images"][3]}
+                  alt={productsData[id - 1]["title"]}
+                />
+              </Tab.Pane>
+            </Tab.Content>
+          </div>
         </Tab.Container>
         <div id="product_add_to_cart">
           <div id="one_product_info">
@@ -121,9 +134,7 @@ const ProductDetails = () => {
             </div>
           </div>
           <hr />
-          <Link to="/cart">
-            <button>Add to Cart</button>
-          </Link>
+            <button onClick={(e) => handleClick(e)}>Add to Cart</button>
         </div>
       </main>
 
@@ -259,7 +270,7 @@ const ProductDetails = () => {
         </Tab.Container>
       </section>
 
-        {/* related products */}
+      {/* related products */}
       <section>
         <h2 className="text-center h3 fw-semibold my-5 py-5">
           Related Products
