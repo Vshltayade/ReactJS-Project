@@ -94,9 +94,9 @@ const TopProducts = (props) => {
                       <p>{product["info"]}</p>
                       <hr />
                       <h4>
-                        ₹{product["originalPrice"]}{" "}
+                        ₹{product["finalPrice"]}{" "}
                         <del className="text-secondary">
-                          ₹{product["finalPrice"]}
+                          ₹{product["originalPrice"]}
                         </del>
                       </h4>
                       <button onClick={(e) => handleClick(e, product)}>
@@ -129,9 +129,9 @@ const TopProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["originalPrice"]}{" "}
+                          ₹{product["finalPrice"]}{" "}
                           <del className="text-secondary">
-                            ₹{product["finalPrice"]}
+                            ₹{product["originalPrice"]}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
@@ -164,9 +164,9 @@ const TopProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["originalPrice"]}{" "}
+                          ₹{product["finalPrice"]}{" "}
                           <del className="text-secondary">
-                            ₹{product["finalPrice"]}
+                            ₹{product["originalPrice"]}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
@@ -199,9 +199,9 @@ const TopProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["originalPrice"]}{" "}
+                          ₹{product["finalPrice"]}{" "}
                           <del className="text-secondary">
-                            ₹{product["finalPrice"]}
+                            ₹{product["originalPrice"]}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
@@ -234,9 +234,9 @@ const TopProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["originalPrice"]}{" "}
+                          ₹{product["finalPrice"]}{" "}
                           <del className="text-secondary">
-                            ₹{product["finalPrice"]}
+                            ₹{product["originalPrice"]}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
@@ -251,6 +251,7 @@ const TopProducts = (props) => {
             </div>
           </Tab.Pane>
         </Tab.Content>
+        
       </Tab.Container>
     </div>
   );

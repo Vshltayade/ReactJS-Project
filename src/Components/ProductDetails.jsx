@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useParams } from "react-router-dom";
 import "../Stylings/productDetails.css";
 import productsData from "../data/productsData";
@@ -8,20 +9,27 @@ import reviewsData from "../data/reviewsData";
 import { FaUserEdit } from "react-icons/fa";
 
 const ProductDetails = (props) => {
-
   console.log(props);
 
   const { id } = useParams();
 
-  const handleClick = (e) => {
-    e.target.style.background = "rgb(0, 136, 0)"
-    e.target.style.transition = "background .2s ease-in"
-    e.target.innerText = "Added"
+  const handleClick = (e, product) => {
+    let obj = props.items;
+    if (props.items[product["id"]])
+      props.setItems({
+        ...obj,
+        [product["id"]]: { count: obj[product["id"]]["count"] + 1 },
+      });
+    else props.setItems({ ...obj, [product["id"]]: { count: 1 } });
+    e.target.style.background = "rgb(0, 136, 0)";
+    e.target.style.transition = "background .2s ease-in";
+    e.target.innerText = "Added";
     setTimeout(() => {
-      e.target.style.background = "#d00000"
-      e.target.innerText = "Add to Cart"
-    }, 2000 )
-  }
+      e.target.style.background = "#d00000";
+      e.target.style.transition = "background .2s ease-in";
+      e.target.innerText = "Add to Cart";
+    }, 2000);
+  };
 
   return (
     <div className="px-5 my-5" style={{ color: "#c5c5c5" }}>
@@ -109,9 +117,9 @@ const ProductDetails = (props) => {
           <div id="one_product_pricing">
             <div>
               <h2>
-                ₹{productsData[id - 1]["originalPrice"]}{" "}
+                ₹{productsData[id - 1]["finalPrice"]}{" "}
                 <del className="text-secondary">
-                  ₹{productsData[id - 1]["finalPrice"]}
+                  ₹{productsData[id - 1]["originalPrice"]}
                 </del>
               </h2>
               <p className="one_product_pricing_save">You save: ₹5,000 (33%)</p>
@@ -134,7 +142,9 @@ const ProductDetails = (props) => {
             </div>
           </div>
           <hr />
-            <button onClick={(e) => handleClick(e)}>Add to Cart</button>
+          <button onClick={(e) => handleClick(e, productsData[id - 1])}>
+            Add to Cart
+          </button>
         </div>
       </main>
 
@@ -294,12 +304,14 @@ const ProductDetails = (props) => {
                     <p>{product["info"]}</p>
                     <hr />
                     <h4>
-                      ₹{product["originalPrice"]}{" "}
+                      ₹{product["finalPrice"]}{" "}
                       <del className="text-secondary">
-                        ₹{product["finalPrice"]}
+                        ₹{product["originalPrice"]}
                       </del>
                     </h4>
-                    <button>Add to cart</button>
+                    <button onClick={(e) => handleClick(e, product)}>
+                      Add to cart
+                    </button>
                   </div>
                 );
               })}
