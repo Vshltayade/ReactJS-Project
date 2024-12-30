@@ -9,8 +9,8 @@ import Rate from "./Rate";
 import { useRef, useState } from "react";
 
 const AllProducts = (props) => {
-    const [amt, setAmt] = useState(449)
-    const price = useRef(amt)
+  const [amt, setAmt] = useState(449);
+  const price = useRef(amt);
   const [check, setCheck] = useState({
     jbl: false,
     boat: false,
@@ -19,7 +19,7 @@ const AllProducts = (props) => {
     earbuds: false,
     earphones: false,
     neckbands: false,
-    priceRange : false
+    priceRange: false,
   });
 
   let arr1 = [],
@@ -54,39 +54,43 @@ const AllProducts = (props) => {
   const handleRange = () => {
     let obj = check;
     setCheck({ ...obj, priceRange: true });
-    setAmt(price.current.value)
+    setAmt(price.current.value);
     console.log(price.current.value);
-  }
+  };
 
   const clearFilter = () => {
-    setAmt(449)
-    price.current.value = 449
+    setAmt(449);
+    price.current.value = 449;
     // document.getElementsByClassName('nav-item')[3].children.item(0).classList.add('active')
     setCheck({
-        jbl: false,
-        boat: false,
-        sony: false,
-        headphones: false,
-        earbuds: false,
-        earphones: false,
-        neckbands: false,
-        priceRange: false
-    })
-  }
+      jbl: false,
+      boat: false,
+      sony: false,
+      headphones: false,
+      earbuds: false,
+      earphones: false,
+      neckbands: false,
+      priceRange: false,
+    });
+  };
 
   return (
     <div id="all_products" className="my-5" style={{ color: "#c5c5c5" }}>
       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
         <Row className="d-flex justify-content-around mx-0">
           <Col id="side-bar" sm={2}>
-
             {(check.jbl ||
-                  check.boat || check.priceRange ||
-                  check.sony ||
-                  check.headphones ||
-                  check.earbuds ||
-                  check.earphones ||
-                  check.neckbands) && <button className="clear my-4 mx-4" onClick={clearFilter}>Clear Filters</button>}
+              check.boat ||
+              check.priceRange ||
+              check.sony ||
+              check.headphones ||
+              check.earbuds ||
+              check.earphones ||
+              check.neckbands) && (
+              <button className="clear my-4 mx-4" onClick={clearFilter}>
+                Clear Filters
+              </button>
+            )}
 
             <div id="sort-by">
               <h5>Sort By</h5>
@@ -230,15 +234,28 @@ const AllProducts = (props) => {
               </form>
             </div>
 
-            <label htmlFor="customRange2" className="form-label mt-4 h6">Price</label>
+            <label htmlFor="customRange2" className="form-label mt-4 h6">
+              Price
+            </label>
             <p>{amt}</p>
-            <input type="range" name="price" className="form-range" min="449" max="19990"  ref={price} onChange={handleRange} id="customRange2"/>
+            <input
+              type="range"
+              name="price"
+              className="form-range"
+              min="449"
+              max="19990"
+              ref={price}
+              onChange={handleRange}
+              id="customRange2"
+            />
+
           </Col>
 
           <Col sm={9}>
             <Tab.Content>
               <Tab.Pane eventKey="first">
-                {!check.priceRange && !check.jbl &&
+                {!check.priceRange &&
+                  !check.jbl &&
                   !check.boat &&
                   !check.sony &&
                   !check.headphones &&
@@ -261,9 +278,9 @@ const AllProducts = (props) => {
                               <p>{product["info"]}</p>
                               <hr />
                               <h4>
-                                ₹{product["finalPrice"]}{" "}
+                                ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                                 <del className="text-secondary">
-                                  ₹{product["originalPrice"]}
+                                  ₹{product["originalPrice"].toLocaleString("en-IN")}
                                 </del>
                               </h4>
                               <button onClick={(e) => handleClick(e, product)}>
@@ -277,7 +294,8 @@ const AllProducts = (props) => {
               </Tab.Pane>
 
               <Tab.Pane eventKey="second">
-                {!check.priceRange && !check.jbl &&
+                {!check.priceRange &&
+                  !check.jbl &&
                   !check.boat &&
                   !check.sony &&
                   !check.headphones &&
@@ -307,9 +325,9 @@ const AllProducts = (props) => {
                                 <p>{product["info"]}</p>
                                 <hr />
                                 <h4>
-                                  ₹{product["finalPrice"]}{" "}
+                                  ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                                   <del className="text-secondary">
-                                    ₹{product["originalPrice"]}
+                                    ₹{product["originalPrice"].toLocaleString("en-IN")}
                                   </del>
                                 </h4>
                                 <button
@@ -325,7 +343,8 @@ const AllProducts = (props) => {
               </Tab.Pane>
 
               <Tab.Pane eventKey="third">
-                {!check.priceRange && !check.jbl &&
+                {!check.priceRange &&
+                  !check.jbl &&
                   !check.boat &&
                   !check.sony &&
                   !check.headphones &&
@@ -353,9 +372,9 @@ const AllProducts = (props) => {
                                 <p>{product["info"]}</p>
                                 <hr />
                                 <h4>
-                                  ₹{product["finalPrice"]}{" "}
+                                  ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                                   <del className="text-secondary">
-                                    ₹{product["originalPrice"]}
+                                    ₹{product["originalPrice"].toLocaleString("en-IN")}
                                   </del>
                                 </h4>
                                 <button
@@ -371,7 +390,8 @@ const AllProducts = (props) => {
               </Tab.Pane>
 
               <Tab.Pane eventKey="fourth">
-                {!check.priceRange && !check.jbl &&
+                {!check.priceRange &&
+                  !check.jbl &&
                   !check.boat &&
                   !check.sony &&
                   !check.headphones &&
@@ -399,9 +419,9 @@ const AllProducts = (props) => {
                                 <p>{product["info"]}</p>
                                 <hr />
                                 <h4>
-                                  ₹{product["finalPrice"]}{" "}
+                                  ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                                   <del className="text-secondary">
-                                    ₹{product["originalPrice"]}
+                                    ₹{product["originalPrice"].toLocaleString("en-IN")}
                                   </del>
                                 </h4>
                                 <button
@@ -417,7 +437,8 @@ const AllProducts = (props) => {
               </Tab.Pane>
 
               <Tab.Pane eventKey="fifth">
-                {!check.priceRange && !check.jbl &&
+                {!check.priceRange &&
+                  !check.jbl &&
                   !check.boat &&
                   !check.sony &&
                   !check.headphones &&
@@ -445,9 +466,9 @@ const AllProducts = (props) => {
                                 <p>{product["info"]}</p>
                                 <hr />
                                 <h4>
-                                  ₹{product["finalPrice"]}{" "}
+                                  ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                                   <del className="text-secondary">
-                                    ₹{product["originalPrice"]}
+                                    ₹{product["originalPrice"].toLocaleString("en-IN")}
                                   </del>
                                 </h4>
                                 <button
@@ -482,9 +503,9 @@ const AllProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["finalPrice"]}{" "}
+                          ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                           <del className="text-secondary">
-                            ₹{product["originalPrice"]}
+                            ₹{product["originalPrice"].toLocaleString("en-IN")}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
@@ -511,9 +532,9 @@ const AllProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["finalPrice"]}{" "}
+                          ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                           <del className="text-secondary">
-                            ₹{product["originalPrice"]}
+                            ₹{product["originalPrice"].toLocaleString("en-IN")}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
@@ -540,9 +561,9 @@ const AllProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["finalPrice"]}{" "}
+                          ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                           <del className="text-secondary">
-                            ₹{product["originalPrice"]}
+                            ₹{product["originalPrice"].toLocaleString("en-IN")}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
@@ -569,9 +590,9 @@ const AllProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["finalPrice"]}{" "}
+                          ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                           <del className="text-secondary">
-                            ₹{product["originalPrice"]}
+                            ₹{product["originalPrice"].toLocaleString("en-IN")}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
@@ -598,9 +619,9 @@ const AllProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["finalPrice"]}{" "}
+                          ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                           <del className="text-secondary">
-                            ₹{product["originalPrice"]}
+                            ₹{product["originalPrice"].toLocaleString("en-IN")}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
@@ -627,9 +648,9 @@ const AllProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["finalPrice"]}{" "}
+                          ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                           <del className="text-secondary">
-                            ₹{product["originalPrice"]}
+                            ₹{product["originalPrice"].toLocaleString("en-IN")}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
@@ -656,9 +677,9 @@ const AllProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["finalPrice"]}{" "}
+                          ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                           <del className="text-secondary">
-                            ₹{product["originalPrice"]}
+                            ₹{product["originalPrice"].toLocaleString("en-IN")}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
@@ -667,35 +688,35 @@ const AllProducts = (props) => {
                       </div>
                     );
                   })}
-                  {check.priceRange &&
-                    productsData &&
-                    productsData
-                      .filter((product) => product["finalPrice"] <= amt)
-                      .map((product) => {
-                        return (
-                          <div className="product_items" key={product["id"]}>
-                            <img
-                              src={product["images"][0]}
-                              alt={product["title"]}
-                            />
-                            <div>
-                              <Rate rateCount={product["rateCount"]} />
-                            </div>
-                            <h3>{product["title"]}</h3>
-                            <p>{product["info"]}</p>
-                            <hr />
-                            <h4>
-                              ₹{product["finalPrice"]}{" "}
-                              <del className="text-secondary">
-                                ₹{product["originalPrice"]}
-                              </del>
-                            </h4>
-                            <button onClick={(e) => handleClick(e, product)}>
-                              Add to cart
-                            </button>
-                          </div>
-                        );
-                      })}
+              {check.priceRange &&
+                productsData &&
+                productsData
+                  .filter((product) => product["finalPrice"] <= amt)
+                  .map((product) => {
+                    return (
+                      <div className="product_items" key={product["id"]}>
+                        <img
+                          src={product["images"][0]}
+                          alt={product["title"]}
+                        />
+                        <div>
+                          <Rate rateCount={product["rateCount"]} />
+                        </div>
+                        <h3>{product["title"]}</h3>
+                        <p>{product["info"]}</p>
+                        <hr />
+                        <h4>
+                          ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
+                          <del className="text-secondary">
+                            ₹{product["originalPrice"].toLocaleString("en-IN")}
+                          </del>
+                        </h4>
+                        <button onClick={(e) => handleClick(e, product)}>
+                          Add to cart
+                        </button>
+                      </div>
+                    );
+                  })}
             </div>
           </Col>
         </Row>

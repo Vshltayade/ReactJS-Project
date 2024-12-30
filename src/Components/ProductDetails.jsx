@@ -9,7 +9,6 @@ import reviewsData from "../data/reviewsData";
 import { FaUserEdit } from "react-icons/fa";
 
 const ProductDetails = (props) => {
-  console.log(props);
 
   const { id } = useParams();
 
@@ -117,9 +116,9 @@ const ProductDetails = (props) => {
           <div id="one_product_pricing">
             <div>
               <h2>
-                ₹{productsData[id - 1]["finalPrice"]}{" "}
+                ₹{productsData[id - 1]["finalPrice"].toLocaleString("en-IN")}{" "}
                 <del className="text-secondary">
-                  ₹{productsData[id - 1]["originalPrice"]}
+                  ₹{productsData[id - 1]["originalPrice"].toLocaleString("en-IN")}
                 </del>
               </h2>
               <p className="one_product_pricing_save">You save: ₹5,000 (33%)</p>
@@ -304,9 +303,9 @@ const ProductDetails = (props) => {
                     <p>{product["info"]}</p>
                     <hr />
                     <h4>
-                      ₹{product["finalPrice"]}{" "}
+                      ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                       <del className="text-secondary">
-                        ₹{product["originalPrice"]}
+                        ₹{product["originalPrice"].toLocaleString("en-IN")}
                       </del>
                     </h4>
                     <button onClick={(e) => handleClick(e, product)}>

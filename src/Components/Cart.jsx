@@ -88,9 +88,9 @@ const Cart = (props) => {
                             {product["category"]}
                           </h3>
                           <p>
-                            ₹{product["finalPrice"]}{" "}
+                            ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                             <del className="text-secondary">
-                              ₹{product["originalPrice"]}
+                              ₹{product["originalPrice"].toLocaleString("en-IN")}
                             </del>
                           </p>
                           <div>
@@ -133,11 +133,11 @@ const Cart = (props) => {
             </pre>
             <div>
               <p>Original Price</p>
-              <p>₹{total}</p>
+              <p>₹{total.toLocaleString("en-IN")}</p>
             </div>
             <div>
               <p>Discount</p>
-              <p className="free">- ₹{total - discount}</p>
+              <p className="free">- ₹{(total - discount).toLocaleString("en-IN")}</p>
             </div>
             <div>
               <p>Delivery</p>
@@ -146,7 +146,7 @@ const Cart = (props) => {
             <hr />
             <div id="total-price">
               <p>Total Price</p>
-              <p>₹{discount}</p>
+              <p>₹{discount.toLocaleString("en-IN")}</p>
             </div>
             <button
               onClick={() => {

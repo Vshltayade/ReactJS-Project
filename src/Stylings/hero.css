@@ -31,14 +31,16 @@
 }
 
 #product_intro > h5{
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 600;
 }
 
 #product_intro > h1{
     font-size: 45px;
-    font-weight: 700;
+    font-weight: 600;
     padding: 15px 0;
+    letter-spacing: 1px;
+    word-spacing: 3px;
 }
 
 #product_intro > h4{

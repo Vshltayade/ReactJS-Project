@@ -96,9 +96,9 @@ const TopProducts = (props) => {
                       <p>{product["info"]}</p>
                       <hr />
                       <h4>
-                        ₹{product["finalPrice"]}{" "}
+                        ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                         <del className="text-secondary">
-                          ₹{product["originalPrice"]}
+                          ₹{product["originalPrice"].toLocaleString("en-IN")}
                         </del>
                       </h4>
                       <button onClick={(e) => handleClick(e, product)}>
@@ -133,9 +133,9 @@ const TopProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["finalPrice"]}{" "}
+                          ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                           <del className="text-secondary">
-                            ₹{product["originalPrice"]}
+                            ₹{product["originalPrice"].toLocaleString("en-IN")}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
@@ -170,9 +170,9 @@ const TopProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["finalPrice"]}{" "}
+                          ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                           <del className="text-secondary">
-                            ₹{product["originalPrice"]}
+                            ₹{product["originalPrice"].toLocaleString("en-IN")}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
@@ -207,9 +207,9 @@ const TopProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["finalPrice"]}{" "}
+                          ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                           <del className="text-secondary">
-                            ₹{product["originalPrice"]}
+                            ₹{product["originalPrice"].toLocaleString("en-IN")}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
@@ -244,9 +244,9 @@ const TopProducts = (props) => {
                         <p>{product["info"]}</p>
                         <hr />
                         <h4>
-                          ₹{product["finalPrice"]}{" "}
+                          ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                           <del className="text-secondary">
-                            ₹{product["originalPrice"]}
+                            ₹{product["originalPrice"].toLocaleString("en-IN")}
                           </del>
                         </h4>
                         <button onClick={(e) => handleClick(e, product)}>
