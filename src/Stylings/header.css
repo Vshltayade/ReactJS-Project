@@ -232,3 +232,23 @@ form > .line-text-line::after{
 #login_links > div:last-child {
     background-color: #1da1f2;
 }
+
+
+
+
+
+#search-list {
+    background-color: "#1da1f2";
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 0 15px;
+}
+#search-list li{
+    list-style: none;
+    color: #c5c5c5;
+    font-weight: 300;
+}
+#search-list li:hover{
+    list-style: none;
+    color: red;
+}

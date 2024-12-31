@@ -4,8 +4,6 @@ import ProductDetails from "../Components/ProductDetails";
 import Main from "../Components/Main";
 import Cart from "../Components/Cart";
 import AllProducts from "../Components/AllProducts";
-import Login from "../Components/Login";
-import Signup from "../Components/Signup";
 
 const Routing = (props) => {
   return (
