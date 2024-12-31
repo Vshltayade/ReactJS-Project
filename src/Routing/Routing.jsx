@@ -4,6 +4,8 @@ import ProductDetails from "../Components/ProductDetails";
 import Main from "../Components/Main";
 import Cart from "../Components/Cart";
 import AllProducts from "../Components/AllProducts";
+import Login from "../Components/Login";
+import Signup from "../Components/Signup";
 
 const Routing = (props) => {
   return (
@@ -26,9 +28,6 @@ const Routing = (props) => {
         path="/allproducts"
         element={<AllProducts items={props.items} setItems={props.setItems} />}
       />
-      {/* <Route path="/login" element={<Login/>} />
-            <Route path="/signup" element={<Signup/>} />
-             */}
     </Routes>
   );
 };

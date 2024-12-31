@@ -40,6 +40,7 @@ ul #signup{
 
 ul #signup h4{
     font-size: medium;
+    left: 0;
 }
 
 ul #signup p{
@@ -126,4 +127,108 @@ sup{
     height: 20px;
     line-height: 5px;
     font-weight: bold;
+}
+
+
+
+
+
+
+
+#form_div{
+    display: flex;
+    justify-content: center;
+}
+form{
+    width: 100%;
+    background-color: #151515;
+}
+form > h2 {
+    margin: 5px;
+    padding: 5px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+form > p {
+    margin: 5px;
+    padding: 5px;
+}
+form span {
+    color: #c5c5c5;
+    cursor: pointer;
+}
+form span:hover {
+    color: #ebebeb;
+    cursor: pointer;
+}
+form > input {
+    margin: 10px;
+    padding: 12px;
+    width: 95%;
+    border: 1px solid #46484e;
+    border-radius: 3px;
+    background-color: #151515;
+    color: #ebebeb;
+}
+[placeholder]{
+    font-size: large;
+    letter-spacing: .5px;
+}
+form > input:hover{
+    border: 1px solid #a9afc3;
+}
+form > button {
+    width: 95%;
+    margin: 25px 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #d00404;
+    color: #ebebeb;
+    font-size: 16px;
+    font-weight: 300;
+}
+form > button:hover {
+    background-color: #e90000;
+    cursor: pointer;
+}
+
+form > div {
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+}
+
+form > .line-text-line::before, form > .line-text-line::after {
+    content: ' ';
+    flex: 1;
+    border-bottom: 1px solid #46484e;
+    margin: auto;
+}
+form > .line-text-line::before{
+    margin-right: 50px;
+}
+form > .line-text-line::after{
+    margin-left: 50px;
+}
+
+#login_links > div {
+    flex: 1;
+    text-align: center;
+    margin: 15px 0;
+        padding: 10px 2px;
+        color: #ebebeb;
+    cursor: pointer;
+}
+#login_links > div:first-child {
+    background-color: #3b5998;
+    margin-right: 15px;
+}
+#login_links > div:nth-child(2) {
+    background-color: #a61c00;
+    margin-right: 15px;
+}
+#login_links > div:last-child {
+    background-color: #1da1f2;
 }

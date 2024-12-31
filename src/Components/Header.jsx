@@ -51,9 +51,13 @@ const Header = (props) => {
                   <div id="signup">
                     <h4>Hello!</h4>
                     <p>Access account and manage orders</p>
-                    <Link to="login">
-                      <button>Login / Signup</button>
-                    </Link>
+
+                    <button
+                      data-bs-target="#exampleModalToggle"
+                      data-bs-toggle="modal"
+                    >
+                      Login / Signup
+                    </button>
                     <hr />
                     <span>{dropdownMenu[0]["link"]}</span>
                   </div>
@@ -63,6 +67,138 @@ const Header = (props) => {
           </div>
         </div>
       </nav>
+
+      {/* modal */}
+      <div
+        className="modal fade"
+        id="exampleModalToggle"
+        aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel"
+        tabIndex="-1"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div
+            className="modal-content text-white"
+            style={{ background: "#151515" }}
+          >
+            <div className="modal-body">
+              <button
+                type="button"
+                className="btn-close float-end bg-light"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+              <div id="form_div">
+                <form>
+                  <h2>Login</h2>
+                  <p>
+                    New to Tech-Shop ?{" "}
+                    <span
+                      data-bs-target="#exampleModalToggle2"
+                      data-bs-toggle="modal"
+                    >
+                      Create an account
+                    </span>
+                  </p>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                  />
+                  <br />
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                  />
+                  <br />
+                  <button>Signup</button>
+                  <div className="line-text-line">or login with</div>
+                  <div id="login_links">
+                    <div>Facebook</div>
+                    <div>Google</div>
+                    <div>Twitter</div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="modal fade"
+        id="exampleModalToggle2"
+        aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel2"
+        tabIndex="-1"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div
+            className="modal-content text-white"
+            style={{ background: "#151515" }}
+          >
+            <div className="modal-body m-0 p-0">
+              <button
+                type="button"
+                className="btn-close float-end bg-light"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+              <div id="form_div">
+                <form>
+                  <h2>Signup</h2>
+                  <p>
+                    Already have an account ?{" "}
+                    <span
+                      data-bs-target="#exampleModalToggle"
+                      data-bs-toggle="modal"
+                    >
+                      Login
+                    </span>
+                  </p>
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="Username"
+                  />
+                  <br />
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                  />
+                  <br />
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                  />
+                  <br />
+                  <input
+                    type="password"
+                    name="confirm_password"
+                    id="confirm_password"
+                    placeholder="Confirm Password"
+                  />
+                  <br />
+                  <button>Signup</button>
+                  <div className="line-text-line">or login with</div>
+                  <div id="login_links">
+                    <div>Facebook</div>
+                    <div>Google</div>
+                    <div>Twitter</div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
