@@ -9,8 +9,13 @@ import Rate from "./Rate";
 import { useRef, useState } from "react";
 
 const AllProducts = (props) => {
+  // price range state
   const [amt, setAmt] = useState(449);
+
+  // input price range
   const price = useRef(amt);
+
+  // checkbox states for filtering
   const [check, setCheck] = useState({
     jbl: false,
     boat: false,
@@ -22,17 +27,20 @@ const AllProducts = (props) => {
     priceRange: false,
   });
 
+  // sorting arrays
   let arr1 = [],
     arr2 = [];
   Object.assign(arr1, productsData);
   Object.assign(arr2, productsData);
 
+  // checkbox changes handler
   const handleChange = (e) => {
     let obj = check;
     const { name, checked } = e.target;
     setCheck({ ...obj, [name]: checked });
   };
 
+  // add to cart function
   const handleClick = (e, product) => {
     let obj = props.items;
     if (props.items[product["id"]])
@@ -51,6 +59,7 @@ const AllProducts = (props) => {
     }, 2000);
   };
 
+  // check price range
   const handleRange = () => {
     let obj = check;
     setCheck({ ...obj, priceRange: true });
@@ -58,6 +67,7 @@ const AllProducts = (props) => {
     console.log(price.current.value);
   };
 
+  // clearing filter function
   const clearFilter = () => {
     setAmt(449);
     price.current.value = 449;
@@ -76,8 +86,10 @@ const AllProducts = (props) => {
 
   return (
     <div id="all_products" className="my-5" style={{ color: "#c5c5c5" }}>
+      {/* container for filter options and filtered content */}
       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
         <Row className="d-flex justify-content-around mx-0">
+          {/* filtering options */}
           <Col id="side-bar" sm={2}>
             {(check.jbl ||
               check.boat ||
@@ -92,6 +104,7 @@ const AllProducts = (props) => {
               </button>
             )}
 
+            {/* sort options */}
             <div id="sort-by">
               <h5>Sort By</h5>
               <hr />
@@ -115,11 +128,13 @@ const AllProducts = (props) => {
               </Nav>
             </div>
 
+            {/* filter options */}
             <div id="filter-by">
               <h5>Filter By</h5>
               <hr />
               <h6>Brand</h6>
 
+              {/* filter by brands */}
               <form>
                 <div className="form-check pe-3 py-1">
                   <input
@@ -170,6 +185,7 @@ const AllProducts = (props) => {
 
               <h6 className="mt-4">Category</h6>
 
+              {/* filter by category */}
               <form>
                 <div className="form-check pe-3 py-1">
                   <input
@@ -234,6 +250,7 @@ const AllProducts = (props) => {
               </form>
             </div>
 
+            {/* price range filter */}
             <label htmlFor="customRange2" className="form-label mt-4 h6">
               Price
             </label>
@@ -248,11 +265,12 @@ const AllProducts = (props) => {
               onChange={handleRange}
               id="customRange2"
             />
-
           </Col>
 
+          {/* filtered data */}
           <Col sm={9}>
             <Tab.Content>
+              {/* default products */}
               <Tab.Pane eventKey="first">
                 {!check.priceRange &&
                   !check.jbl &&
@@ -280,7 +298,10 @@ const AllProducts = (props) => {
                               <h4>
                                 ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                                 <del className="text-secondary">
-                                  ₹{product["originalPrice"].toLocaleString("en-IN")}
+                                  ₹
+                                  {product["originalPrice"].toLocaleString(
+                                    "en-IN"
+                                  )}
                                 </del>
                               </h4>
                               <button onClick={(e) => handleClick(e, product)}>
@@ -292,7 +313,7 @@ const AllProducts = (props) => {
                     </div>
                   )}
               </Tab.Pane>
-
+              {/* featured products */}
               <Tab.Pane eventKey="second">
                 {!check.priceRange &&
                   !check.jbl &&
@@ -325,9 +346,15 @@ const AllProducts = (props) => {
                                 <p>{product["info"]}</p>
                                 <hr />
                                 <h4>
-                                  ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
+                                  ₹
+                                  {product["finalPrice"].toLocaleString(
+                                    "en-IN"
+                                  )}{" "}
                                   <del className="text-secondary">
-                                    ₹{product["originalPrice"].toLocaleString("en-IN")}
+                                    ₹
+                                    {product["originalPrice"].toLocaleString(
+                                      "en-IN"
+                                    )}
                                   </del>
                                 </h4>
                                 <button
@@ -341,7 +368,7 @@ const AllProducts = (props) => {
                     </div>
                   )}
               </Tab.Pane>
-
+              {/* top rated products */}
               <Tab.Pane eventKey="third">
                 {!check.priceRange &&
                   !check.jbl &&
@@ -372,9 +399,15 @@ const AllProducts = (props) => {
                                 <p>{product["info"]}</p>
                                 <hr />
                                 <h4>
-                                  ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
+                                  ₹
+                                  {product["finalPrice"].toLocaleString(
+                                    "en-IN"
+                                  )}{" "}
                                   <del className="text-secondary">
-                                    ₹{product["originalPrice"].toLocaleString("en-IN")}
+                                    ₹
+                                    {product["originalPrice"].toLocaleString(
+                                      "en-IN"
+                                    )}
                                   </del>
                                 </h4>
                                 <button
@@ -388,7 +421,7 @@ const AllProducts = (props) => {
                     </div>
                   )}
               </Tab.Pane>
-
+              {/* price low to high */}
               <Tab.Pane eventKey="fourth">
                 {!check.priceRange &&
                   !check.jbl &&
@@ -419,9 +452,15 @@ const AllProducts = (props) => {
                                 <p>{product["info"]}</p>
                                 <hr />
                                 <h4>
-                                  ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
+                                  ₹
+                                  {product["finalPrice"].toLocaleString(
+                                    "en-IN"
+                                  )}{" "}
                                   <del className="text-secondary">
-                                    ₹{product["originalPrice"].toLocaleString("en-IN")}
+                                    ₹
+                                    {product["originalPrice"].toLocaleString(
+                                      "en-IN"
+                                    )}
                                   </del>
                                 </h4>
                                 <button
@@ -435,7 +474,7 @@ const AllProducts = (props) => {
                     </div>
                   )}
               </Tab.Pane>
-
+              {/* price high to low */}
               <Tab.Pane eventKey="fifth">
                 {!check.priceRange &&
                   !check.jbl &&
@@ -466,9 +505,15 @@ const AllProducts = (props) => {
                                 <p>{product["info"]}</p>
                                 <hr />
                                 <h4>
-                                  ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
+                                  ₹
+                                  {product["finalPrice"].toLocaleString(
+                                    "en-IN"
+                                  )}{" "}
                                   <del className="text-secondary">
-                                    ₹{product["originalPrice"].toLocaleString("en-IN")}
+                                    ₹
+                                    {product["originalPrice"].toLocaleString(
+                                      "en-IN"
+                                    )}
                                   </del>
                                 </h4>
                                 <button
@@ -484,7 +529,9 @@ const AllProducts = (props) => {
               </Tab.Pane>
             </Tab.Content>
 
+            {/* filtering content based on brands and category and price range */}
             <div id="product_grid" className="my-0 mx-0">
+              {/* JBL products */}
               {check.jbl &&
                 productsData &&
                 productsData
@@ -514,6 +561,7 @@ const AllProducts = (props) => {
                       </div>
                     );
                   })}
+              {/* Boat products */}
               {check.boat &&
                 productsData &&
                 productsData
@@ -543,6 +591,7 @@ const AllProducts = (props) => {
                       </div>
                     );
                   })}
+              {/* Sony products */}
               {check.sony &&
                 productsData &&
                 productsData
@@ -572,6 +621,7 @@ const AllProducts = (props) => {
                       </div>
                     );
                   })}
+              {/* headphones products */}
               {check.headphones &&
                 productsData &&
                 productsData
@@ -601,6 +651,7 @@ const AllProducts = (props) => {
                       </div>
                     );
                   })}
+              {/* earbuds products */}
               {check.earbuds &&
                 productsData &&
                 productsData
@@ -630,6 +681,7 @@ const AllProducts = (props) => {
                       </div>
                     );
                   })}
+              {/* earphones products */}
               {check.earphones &&
                 productsData &&
                 productsData
@@ -659,6 +711,7 @@ const AllProducts = (props) => {
                       </div>
                     );
                   })}
+              {/* neckbands products */}
               {check.neckbands &&
                 productsData &&
                 productsData
@@ -688,6 +741,7 @@ const AllProducts = (props) => {
                       </div>
                     );
                   })}
+              {/* price range products */}
               {check.priceRange &&
                 productsData &&
                 productsData

@@ -6,6 +6,7 @@ import Services from "./Components/Services";
 import Routing from "./Routing/Routing";
 
 function App() {
+  // state to store items and passing as props
   const [items, setItems] = useState({});
 
   return (

@@ -6,6 +6,7 @@ import productsData from "../data/productsData";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
+  // slider settings
   const settings = {
     dots: true,
     infinite: true,
@@ -19,7 +20,9 @@ const Hero = () => {
 
   return (
     <div className="slider-container">
+      {/* hero images and content */}
       <Slider {...settings}>
+        {/* hero products */}
         {productsData &&
           productsData
             .filter((product) => product["tag"] === "hero-product")

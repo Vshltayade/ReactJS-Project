@@ -7,21 +7,26 @@ import AllProducts from "../Components/AllProducts";
 
 const Routing = (props) => {
   return (
+    // include route
     <Routes>
+      {/* default */}
       <Route
         path="/"
         element={<Main items={props.items} setItems={props.setItems} />}
       />
+      {/* product details */}
       <Route
         path="/product-details/:id"
         element={
           <ProductDetails items={props.items} setItems={props.setItems} />
         }
       />
+      {/* cart */}
       <Route
         path="/cart"
         element={<Cart items={props.items} setItems={props.setItems} />}
       />
+      {/* all products with filter */}
       <Route
         path="/allproducts"
         element={<AllProducts items={props.items} setItems={props.setItems} />}

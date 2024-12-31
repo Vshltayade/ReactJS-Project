@@ -9,9 +9,10 @@ import reviewsData from "../data/reviewsData";
 import { FaUserEdit } from "react-icons/fa";
 
 const ProductDetails = (props) => {
-
+  // product id of particular product
   const { id } = useParams();
 
+  // add to cart function
   const handleClick = (e, product) => {
     let obj = props.items;
     if (props.items[product["id"]])
@@ -35,6 +36,7 @@ const ProductDetails = (props) => {
       {/* product images and pricing */}
       <main id="selected-product" className="d-flex">
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+          {/* different images */}
           <Nav variant="" className="flex-column">
             <div id="different_images">
               <Nav.Item>
@@ -71,6 +73,7 @@ const ProductDetails = (props) => {
               </Nav.Item>
             </div>
           </Nav>
+          {/* selected images */}
           <div id="one_image">
             <Tab.Content>
               <Tab.Pane eventKey="first">
@@ -100,6 +103,8 @@ const ProductDetails = (props) => {
             </Tab.Content>
           </div>
         </Tab.Container>
+
+        {/* product overview, price, offers */}
         <div id="product_add_to_cart">
           <div id="one_product_info">
             <h1>{productsData[id - 1]["title"]}</h1>
@@ -118,7 +123,10 @@ const ProductDetails = (props) => {
               <h2>
                 ₹{productsData[id - 1]["finalPrice"].toLocaleString("en-IN")}{" "}
                 <del className="text-secondary">
-                  ₹{productsData[id - 1]["originalPrice"].toLocaleString("en-IN")}
+                  ₹
+                  {productsData[id - 1]["originalPrice"].toLocaleString(
+                    "en-IN"
+                  )}
                 </del>
               </h2>
               <p className="one_product_pricing_save">You save: ₹5,000 (33%)</p>
@@ -149,9 +157,11 @@ const ProductDetails = (props) => {
 
       {/* product specification, overview, reviews */}
       <section className="my-5 py-5">
+        {/* product details heading */}
         <Tab.Container defaultActiveKey="first">
           <div className="d-flex justify-content-center">
             <Nav className="flex-row">
+              {/* specifications */}
               <Nav.Item className="mx-5">
                 <Nav.Link
                   eventKey="first"
@@ -161,6 +171,7 @@ const ProductDetails = (props) => {
                   Specifications
                 </Nav.Link>
               </Nav.Item>
+              {/* overview */}
               <Nav.Item className="mx-5">
                 <Nav.Link
                   eventKey="second"
@@ -170,6 +181,7 @@ const ProductDetails = (props) => {
                   Overview
                 </Nav.Link>
               </Nav.Item>
+              {/* reviews */}
               <Nav.Item className="mx-5">
                 <Nav.Link
                   eventKey="third"
@@ -183,6 +195,7 @@ const ProductDetails = (props) => {
           </div>
 
           <Tab.Content>
+            {/* specifications */}
             <Tab.Pane eventKey="first">
               <div id="product_detail_info" className="px-5">
                 <div>
@@ -211,6 +224,7 @@ const ProductDetails = (props) => {
                 </div>
               </div>
             </Tab.Pane>
+            {/* overview */}
             <Tab.Pane eventKey="second">
               <div id="product_overview" className="px-5 my-5">
                 <h5 className=" fw-semibold">
@@ -248,6 +262,7 @@ const ProductDetails = (props) => {
                 </p>
               </div>
             </Tab.Pane>
+            {/* reviews */}
             <Tab.Pane eventKey="third">
               <div className="px-5 my-5">
                 {reviewsData &&
@@ -285,6 +300,7 @@ const ProductDetails = (props) => {
           Related Products
         </h2>
 
+        {/* related products based on category */}
         <div id="product_grid">
           {productsData &&
             productsData

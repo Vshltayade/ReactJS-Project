@@ -7,7 +7,7 @@ import Rate from "./Rate";
 import { Link } from "react-router-dom";
 
 const TopProducts = (props) => {
-  
+  // add to cart function
   const handleClick = (e, product) => {
     let obj = props.items;
     if (props.items[product["id"]])
@@ -30,9 +30,11 @@ const TopProducts = (props) => {
     <div className="px-5 pt-5" style={{ color: "#c5c5c5" }}>
       <h2 className="text-center h3 fw-semibold my-5 py-5">Top Products</h2>
 
+      {/* products filter options based on category */}
       <Tab.Container defaultActiveKey="first">
         <div className="d-flex justify-content-center">
           <Nav className="flex-row">
+            {/* all products */}
             <Nav.Item className="mx-5">
               <Nav.Link
                 eventKey="first"
@@ -42,6 +44,7 @@ const TopProducts = (props) => {
                 All
               </Nav.Link>
             </Nav.Item>
+            {/* headphones */}
             <Nav.Item className="mx-5">
               <Nav.Link
                 eventKey="second"
@@ -51,6 +54,7 @@ const TopProducts = (props) => {
                 Headphones
               </Nav.Link>
             </Nav.Item>
+            {/* earbuds */}
             <Nav.Item className="mx-5">
               <Nav.Link
                 eventKey="third"
@@ -60,6 +64,7 @@ const TopProducts = (props) => {
                 Earbuds
               </Nav.Link>
             </Nav.Item>
+            {/* earphones */}
             <Nav.Item className="mx-5">
               <Nav.Link
                 eventKey="fourth"
@@ -69,6 +74,7 @@ const TopProducts = (props) => {
                 Earphones
               </Nav.Link>
             </Nav.Item>
+            {/* neckbands */}
             <Nav.Item className="mx-5">
               <Nav.Link
                 eventKey="fifth"
@@ -81,7 +87,9 @@ const TopProducts = (props) => {
           </Nav>
         </div>
 
+        {/* products filtered content based on category */}
         <Tab.Content>
+          {/* all products */}
           <Tab.Pane eventKey="first">
             <div id="product_grid">
               {productsData &&
@@ -114,6 +122,7 @@ const TopProducts = (props) => {
               </div>
             </div>
           </Tab.Pane>
+          {/* headphones */}
           <Tab.Pane eventKey="second">
             <div id="product_grid">
               {productsData &&
@@ -151,6 +160,7 @@ const TopProducts = (props) => {
               </div>
             </div>
           </Tab.Pane>
+          {/* earbuds */}
           <Tab.Pane eventKey="third">
             <div id="product_grid">
               {productsData &&
@@ -188,6 +198,7 @@ const TopProducts = (props) => {
               </div>
             </div>
           </Tab.Pane>
+          {/* earphones */}
           <Tab.Pane eventKey="fourth">
             <div id="product_grid">
               {productsData &&
@@ -225,6 +236,7 @@ const TopProducts = (props) => {
               </div>
             </div>
           </Tab.Pane>
+          {/* neckbands */}
           <Tab.Pane eventKey="fifth">
             <div id="product_grid">
               {productsData &&

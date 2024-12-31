@@ -4,6 +4,7 @@ import "../Stylings/featuredProducts.css";
 import { Link } from "react-router-dom";
 
 const FeaturedProducts = () => {
+  // slider settings
   const settings = {
     dots: true,
     className: "center",
@@ -22,7 +23,10 @@ const FeaturedProducts = () => {
       <h2 className="text-center h3 fw-semibold my-5 py-5">
         Featured Products
       </h2>
+
+      {/* slider container */}
       <Slider {...settings}>
+        {/* featured products only */}
         {productsData &&
           productsData
             .filter((product) => product["tag"] === "featured-product")

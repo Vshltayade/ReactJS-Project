@@ -4,9 +4,11 @@ import "../Stylings/Cart.css";
 import productsData from "../data/productsData";
 
 const Cart = (props) => {
+  // variables to calc price
   let total = 0,
     discount = 0;
 
+  // decrease product count
   const decreaseCount = (product) => {
     let obj = props.items;
     if (obj[product["id"]]["count"] === 1) {
@@ -19,6 +21,7 @@ const Cart = (props) => {
     });
   };
 
+  // increase product count
   const increaseCount = (product) => {
     let obj = props.items;
     props.setItems({
@@ -27,6 +30,7 @@ const Cart = (props) => {
     });
   };
 
+  // delete product from cart
   const deleteItem = (product) => {
     let obj = props.items;
     delete obj[product["id"]];
@@ -35,6 +39,7 @@ const Cart = (props) => {
 
   return (
     <div className="px-5 pt-3">
+      {/* empty cart <code></code> */}
       {Object.keys(props.items).length === 0 && (
         <div
           id="empty_cart"
@@ -52,12 +57,15 @@ const Cart = (props) => {
         </div>
       )}
 
+      {/* filled cart code */}
       {Object.keys(props.items).length !== 0 && (
+        // cart section
         <section
           id="cart-section"
           className="d-flex my-5"
           style={{ color: "#c5c5c5" }}
         >
+          {/* products in cart */}
           <div id="cart">
             {props.items &&
               Object.keys(props.items).length !== 0 &&
@@ -90,7 +98,8 @@ const Cart = (props) => {
                           <p>
                             ₹{product["finalPrice"].toLocaleString("en-IN")}{" "}
                             <del className="text-secondary">
-                              ₹{product["originalPrice"].toLocaleString("en-IN")}
+                              ₹
+                              {product["originalPrice"].toLocaleString("en-IN")}
                             </del>
                           </p>
                           <div>
@@ -98,7 +107,6 @@ const Cart = (props) => {
                               <button onClick={() => decreaseCount(product)}>
                                 -
                               </button>
-                              {/* <p id="product_count"></p> */}
                               <input
                                 type="text"
                                 readOnly={true}
@@ -125,6 +133,7 @@ const Cart = (props) => {
                 })}
           </div>
 
+          {/* order summary */}
           <div id="order">
             <pre>
               <h2>
@@ -137,7 +146,9 @@ const Cart = (props) => {
             </div>
             <div>
               <p>Discount</p>
-              <p className="free">- ₹{(total - discount).toLocaleString("en-IN")}</p>
+              <p className="free">
+                - ₹{(total - discount).toLocaleString("en-IN")}
+              </p>
             </div>
             <div>
               <p>Delivery</p>

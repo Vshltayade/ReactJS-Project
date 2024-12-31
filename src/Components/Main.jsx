@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import TopProducts from "./TopProducts";
 
 const Main = (props) => {
+  // includes Hero, FeaturedProducts, TopProducts Component
   return (
     <>
       <Hero />

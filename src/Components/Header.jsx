@@ -6,23 +6,26 @@ import productsData from "../data/productsData";
 import { useState } from "react";
 
 const Header = (props) => {
+  // search state for searching products
+  const [search, setSearch] = useState("");
 
-  const [search, setSearch] = useState('')
-
+  // input product name
   const handleChange = (e) => {
-    setSearch(e.target.value)
-    console.log(search)
-  }
+    setSearch(e.target.value);
+    console.log(search);
+  };
 
   return (
     <>
       <nav className="navbar navbar-expand-lg sticky-top background px-5 pt-3">
         <div className="container-fluid px-0">
+          {/* brand name */}
           <Link to="" className="navbar-brand">
             <h1 className="fw-semibold fc1" style={{ fontSize: "24px" }}>
               Tech-Shop
             </h1>
           </Link>
+          {/* collapse button */}
           <button
             className="navbar-toggler"
             type="button"
@@ -34,13 +37,20 @@ const Header = (props) => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+          {/* collapsible content - icons */}
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              {/* search icon - search products*/}
               <li className="nav-item me-5">
-                  <i className="fa-solid fa-magnifying-glass fc1 fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <div id="title-search">Search</div>
-                  </i>
+                <i
+                  className="fa-solid fa-magnifying-glass fc1 fs-5"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <div id="title-search">Search</div>
+                </i>
               </li>
+              {/* cart icon - go to cart*/}
               <li className="nav-item me-5">
                 {Object.keys(props.items).length !== 0 && (
                   <div id="count_cart">{Object.keys(props.items).length}</div>
@@ -54,6 +64,7 @@ const Header = (props) => {
                   </i>
                 </Link>
               </li>
+              {/* user icon - login / signup */}
               <li className="nav-item">
                 <i className="fa-solid fa-user fc1 fs-5">
                   <div id="signup">
@@ -76,6 +87,7 @@ const Header = (props) => {
       </nav>
 
       {/* modals */}
+      {/* login modal */}
       <div
         className="modal fade"
         id="exampleModalToggle"
@@ -134,7 +146,7 @@ const Header = (props) => {
           </div>
         </div>
       </div>
-
+      {/* signup modal */}
       <div
         className="modal fade"
         id="exampleModalToggle2"
@@ -207,28 +219,58 @@ const Header = (props) => {
           </div>
         </div>
       </div>
-
-      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      {/* search modal */}
+      <div
+        className="modal fade"
+        id="exampleModal"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
-            <div className="modal-body" style={{background:"#151515"}}>
+            <div className="modal-body" style={{ background: "#151515" }}>
               <form>
-              <input type="search" name="search" value={search} placeholder="Search for product..." style={{background:"#202020", height:"45px"}} onChange={(e) => {handleChange(e)}}/>
+                {/* search items */}
+                <input
+                  type="search"
+                  name="search"
+                  value={search}
+                  placeholder="Search for product..."
+                  style={{ background: "#202020", height: "45px" }}
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                />
               </form>
               <br />
               <div>
-                <ul id="search-list" style={{background:"#252525"}}>
-                  {
-                    search && productsData.filter(product => product['title'].toLowerCase().includes(search.toLowerCase())).map(product => {
-                      return(
-                        <Link to={`product-details/${product['id']}`} className="text-decoration-none text-white" key={product['id']}>
-                          <li onClick={() => setSearch('')} data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            {product['title']}
-                          </li>
-                        </Link>
+                {/* view searched products */}
+                <ul id="search-list" style={{ background: "#252525" }}>
+                  {search &&
+                    productsData
+                      .filter((product) =>
+                        product["title"]
+                          .toLowerCase()
+                          .includes(search.toLowerCase())
                       )
-                    })
-                  }
+                      .map((product) => {
+                        return (
+                          <Link
+                            to={`product-details/${product["id"]}`}
+                            className="text-decoration-none text-white"
+                            key={product["id"]}
+                          >
+                            <li
+                              onClick={() => setSearch("")}
+                              data-bs-toggle="modal"
+                              data-bs-target="#exampleModal"
+                            >
+                              {product["title"]}
+                            </li>
+                          </Link>
+                        );
+                      })}
                 </ul>
               </div>
             </div>

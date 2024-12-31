@@ -3,11 +3,13 @@ import "../Stylings/footer.css";
 
 const Footer = () => {
   return (
+    // footer data
     <footer
       className="d-flex flex-column px-5 py-5"
       style={{ backgroundColor: "#141414", color: "#c5c5c5" }}
     >
       <div id="footer_content" className="d-flex">
+        {/* subscribe */}
         <div>
           <h1 className="fw-semibold" style={{ fontSize: "24px" }}>
             Tech-Shop
@@ -20,6 +22,7 @@ const Footer = () => {
           <br />
           <button>Subscribe</button>
         </div>
+        {/* footer list items */}
         <div className="footer-list">
           <h4 className="fs-5">{footMenu[0]["title"]}</h4>
           <ul className="text-secondary my-2">
@@ -52,6 +55,8 @@ const Footer = () => {
         </div>
       </div>
       <hr />
+
+      {/* created by */}
       <div
         className="d-flex justify-content-between align-items-center my-2"
         id="last-line"
